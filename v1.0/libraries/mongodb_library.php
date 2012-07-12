@@ -1,4 +1,9 @@
 <?php
+/*
+ * Author Erwin Setiawan
+ * visit http://erwinsetiawan.com
+ * Feel free to use it and please do not remove this text.
+ */
 
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
