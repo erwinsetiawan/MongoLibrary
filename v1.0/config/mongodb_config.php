@@ -1,5 +1,7 @@
 <?php
 /*
+ * MongoDb Library for Codeigniter v1.0
+ * release date 07/12/2012
  * Author Erwin Setiawan
  * visit http://erwinsetiawan.com
  * Feel free to use it and please do not remove this text.
