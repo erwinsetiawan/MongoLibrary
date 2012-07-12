@@ -1,6 +1,6 @@
 <?php
 /*
- * MongoDb Library for Codeigniter v1.0
+ * MongoDb Library for Codeigniter v1.01
  * release date 07/12/2012
  * Author Erwin Setiawan 
  * visit http://erwinsetiawan.com
@@ -23,6 +23,7 @@ class Mongodb_library extends CI_Config {
     private $persist;
     private $persist_key;
     private $database;
+    
     function __construct() {
         $this->CI = & get_instance();
         $this->CI->config->load($this->config_file);

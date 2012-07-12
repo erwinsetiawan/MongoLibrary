@@ -1,6 +1,6 @@
 <?php
 /*
- * MongoDb Library for Codeigniter v1.0
+ * MongoDb Library for Codeigniter v1.01
  * release date 07/12/2012
  * Author Erwin Setiawan
  * visit http://erwinsetiawan.com
@@ -43,23 +43,29 @@ class MY_Model extends CI_Model {
         return $oid;
     }
 
-    public function get_all_asc() {
-        $result = null;
-        $results = $this->collection->find()->sort(array('_id' => 1));
-        return $results;
-    }
-
-    public function get_all_dsc() {
-        $result = null;
-        $results = $this->collection->find()->sort(array('_id' => -1));
-        return $results;
-    }
-
     public function get_last() {
         $result = null;
         $result = $this->collection->findOne();
         return $result;
     }
+
+    public function get_all_asc() {
+        $results = null;
+        $results = $this->collection->find()->sort(array('_id' => 1));
+        return $results;
+    }
+
+    public function get_all_dsc() {
+        $results = null;
+        $results = $this->collection->find()->sort(array('_id' => -1));
+        return $results;
+    }
+
+	public function get_by_criteria($criteria){
+		$results = null;
+		$results = $this->collection->find($criteria);
+		return $results;
+	}
 
     public function get_by_oid($oid) {
         $result = null;
@@ -70,12 +76,13 @@ class MY_Model extends CI_Model {
     }
 
     public function insert($data) {
-        $result = false;
+        $result = null;
         $result = $this->collection->insert($data);
         if (isset($data['_id'])) {
             $result = $data['_id'];
         }
-        return $result; // result oid
+        
+        return $result;
     }
     
     public function update($data, $criteria, $options = array("upsert" => false)) {
@@ -95,8 +102,8 @@ class MY_Model extends CI_Model {
         return $result; // result true or false
     }
 
-    public function count() {
-        $result = $this->collection->count();
+    public function count($criteria="") {
+        $result = $this->collection->count($criteria);
         return $result;
     }
 
@@ -127,11 +134,11 @@ class MY_Model extends CI_Model {
         return $results;        
     }
     
-    public function find_and_modifiy($data, $criteria, $model_name){
+    public function find_and_modify($data, $criteria, $collection){
         $results = null;
         $results = $this->database->command(
             array(
-                "findAndModify"  => $model_name,
+                "findAndModify"  => $collection,
                 "query"      => $criteria,
                 "update"     => $data
             )

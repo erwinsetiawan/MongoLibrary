@@ -1,6 +1,6 @@
 <?php
 /*
- * MongoDb Library for Codeigniter v1.0
+ * MongoDb Library for Codeigniter v1.01
  * release date 07/12/2012
  * Author Erwin Setiawan
  * visit http://erwinsetiawan.com
@@ -12,7 +12,7 @@ if (!defined('BASEPATH'))
 $development = array(
     'host' => 'localhost',
     'port' => 27017,
-    'dbname' => 'thelostlove_ktg',
+    'dbname' => 'database_name',
     'user' => '',
     'pass' => '',
     'persist' => TRUE,
@@ -24,7 +24,7 @@ $development = array(
 $live = array(
     'host' => 'localhost',
     'port' => 27017,
-    'dbname' => 'thelostlove_ktg',
+    'dbname' => 'database_name',
     'user' => '',
     'pass' => '',
     'persist' => TRUE,
